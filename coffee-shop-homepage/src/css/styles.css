@@ -1,67 +1,91 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&family=Merriweather:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&family=Noto+Serif+JP:wght@700&display=swap');
 
 :root {
-    --bg: #ffffff;
+    --bg: #f7fbf5; /* soft, leaf-like background */
     --card: #ffffff;
-    --text: #111111; /* high contrast */
-    --muted: #444444;
-    --accent: #0b5fa5; /* deep blue for clarity */
-    --accent-2: #eaf3ff;
-    --border: rgba(17,17,17,0.12);
+    --leaf: #2e6b3d; /* deep forest green */
+    --moss: #6aa66b;
+    --gold: #b98f3b; /* warm gold accent */
+    --muted: #5a5a50;
+    --text: #213028;
+    --border: rgba(33,48,40,0.08);
 }
 
-/* Base - larger type for readability */
-html { font-size: 18px; }
+/* Base - refined, slightly larger for elegant reading */
+html { font-size: 17px; }
 body {
     font-family: 'Noto Sans JP', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: var(--bg);
+    background: radial-gradient(1200px 400px at 10% 10%, rgba(110,150,110,0.04), transparent 20%), var(--bg);
     color: var(--text);
-    line-height: 1.8;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
 }
 
-/* Header - simple, clear */
+/* Header - elegant crest feel */
 header {
-    background: var(--accent-2);
-    color: var(--text);
-    padding: 28px 0;
+    background: linear-gradient(180deg, rgba(46,107,61,0.06), transparent 60%);
+    color: var(--leaf);
+    padding: 34px 0 22px;
     text-align: center;
     border-bottom: 1px solid var(--border);
 }
 
+/* Logo in header */
+.site-logo {
+    display: inline-block;
+    width: 64px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 12px;
+}
+
 h1 {
     margin: 0;
-    font-family: 'Merriweather', serif;
-    color: var(--text);
-    font-size: 1.8rem;
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    color: var(--leaf);
+    font-size: 2.1rem;
+    letter-spacing: 0.6px;
 }
 
-nav {
-    margin-top: 10px;
-}
+nav { margin-top: 10px; }
 
-/* Large, obvious nav links */
+/* Nav: understated, with gold hover underline */
 nav a {
-    color: var(--accent);
+    color: var(--muted);
     text-decoration: none;
-    margin: 0 12px;
-    padding: 10px 16px;
-    border-radius: 8px;
+    margin: 0 10px;
+    padding: 8px 12px;
+    border-radius: 6px;
     font-weight: 600;
     font-size: 1.05rem;
-    display: inline-block;
+    transition: color 200ms ease;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 6px;
+    height: 2px;
+    background: transparent;
+    border-radius: 2px;
+    transition: background 200ms ease, transform 200ms ease;
 }
 
 nav a:hover, nav a:focus {
-    background: rgba(11,95,165,0.08);
-    outline: none;
+    color: var(--leaf);
 }
+
+nav a:hover::after, nav a:focus::after { background: var(--gold); transform: scaleX(1); }
 
 .container {
     width: 92%;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: auto;
     padding: 28px 0 48px;
 }
@@ -70,117 +94,88 @@ footer {
     background: transparent;
     color: var(--muted);
     text-align: center;
-    padding: 18px 0;
+    padding: 20px 0;
     border-top: 1px solid var(--border);
     font-size: 0.95rem;
 }
 
-/* Menu: clear card layout, larger touch targets */
+/* Menu: decorative cards with leaf-dot accent */
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
 }
 
 .menu-item {
     background: var(--card);
-    border-radius: 10px;
+    border-radius: 12px;
     padding: 20px;
     border: 1px solid var(--border);
     display: flex;
-    gap: 18px;
+    gap: 16px;
     align-items: center;
+    position: relative;
+    transition: transform 220ms ease, box-shadow 220ms ease;
 }
 
-.menu-item img {
-    width: 96px;
-    height: 96px;
-    object-fit: cover;
-    border-radius: 8px;
+.menu-item::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, var(--moss), var(--leaf));
+    box-shadow: 0 2px 6px rgba(46,107,61,0.12);
 }
 
-.menu-item h3 {
-    margin: 0 0 6px 0;
-    font-size: 1.15rem;
-    color: var(--text);
+.menu-item:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(33,48,40,0.06); }
+
+.menu-item img { width: 88px; height: 88px; object-fit: cover; border-radius: 10px; }
+
+.menu-item h3 { margin: 0 0 6px 0; font-family: 'Noto Serif JP', serif; font-size: 1.1rem; color: var(--leaf); }
+
+.menu-item p { margin: 0; color: var(--muted); font-size: 1rem; }
+
+.menu-item .price { margin-left: auto; font-weight: 700; color: var(--gold); font-size: 1.05rem; }
+
+/* Contact form - soft card with clear labels */
+.contact-form { background: var(--card); padding: 26px; border-radius: 12px; border: 1px solid var(--border); }
+
+.contact-form label { display: block; font-weight: 600; color: var(--leaf); margin-top: 8px; }
+
+.contact-form input, .contact-form textarea {
+    width: 100%; padding: 12px 14px; margin-top: 8px; border-radius: 8px; border: 1px solid var(--border);
+    font-size: 1rem; color: var(--text); background: #fbfbf9;
 }
 
-.menu-item p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 1rem;
+.contact-form textarea { min-height: 140px; }
+
+.contact-form input:focus, .contact-form textarea:focus { outline: none; box-shadow: 0 0 0 6px rgba(185,143,59,0.08); border-color: var(--moss); }
+
+/* Buttons - elegant gold outline or filled */
+.btn-primary {
+    background: linear-gradient(180deg, var(--gold), #a4772e);
+    color: #fff; border: none; padding: 10px 18px; border-radius: 8px; cursor: pointer; font-weight: 700;
 }
 
-.menu-item .price {
-    margin-left: auto;
-    font-weight: 700;
-    color: var(--text);
-    font-size: 1.1rem;
+.btn-outline {
+    background: transparent; color: var(--leaf); border: 2px solid var(--gold); padding: 8px 16px; border-radius: 8px; font-weight: 600;
 }
 
-/* Contact form - big, clear inputs */
-.contact-form {
-    background: var(--card);
-    padding: 24px;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(33,48,40,0.08); }
 
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 14px 16px;
-    margin: 12px 0;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    font-size: 1rem;
-}
+/* Accessibility focus */
+a:focus, button:focus, input:focus, textarea:focus { box-shadow: 0 0 0 6px rgba(46,107,61,0.08); }
 
-.contact-form textarea { min-height: 120px; }
-
-.contact-form input:focus, .contact-form textarea:focus {
-    outline: none;
-    border-color: var(--accent);
-    box-shadow: 0 0 0 4px rgba(11,95,165,0.12);
-}
-
-/* Buttons - large and high-contrast */
-.btn-primary, .contact-form button {
-    background: var(--accent);
-    color: #fff;
-    border: none;
-    padding: 12px 20px;
-    cursor: pointer;
-    border-radius: 8px;
-    font-size: 1.05rem;
-    min-height: 48px;
-}
-
-.btn-primary:hover, .contact-form button:hover {
-    background: #084a80;
-}
-
-/* Clear focus states for accessibility */
-a:focus, button:focus, input:focus, textarea:focus {
-    box-shadow: 0 0 0 6px rgba(11,95,165,0.14);
-}
-
-/* Layout helpers */
+/* Utilities */
 .text-center { text-align: center; }
 .muted { color: var(--muted); }
 
-/* Responsive adjustments */
-@media (max-width: 600px) {
-    html { font-size: 17px; }
-    .menu-item { flex-direction: row; }
-    nav a { display: inline-block; margin: 6px 6px; padding: 10px 12px; }
-}
+/* Responsive tweaks */
+@media (max-width: 700px) { html { font-size: 16px; } .menu-item { flex-direction: row; } }
+@media (max-width: 420px) { html { font-size: 15px; } .menu-item img { width: 78px; height: 78px; } }
 
-@media (max-width: 420px) {
-    html { font-size: 16px; }
-    .menu-item img { width: 84px; height: 84px; }
-}
-
-/* Helpers */
-.spacer-sm { height: 14px; }
-.spacer-md { height: 24px; }
+/* Small helper spacing */
+.spacer-sm { height: 12px; } .spacer-md { height: 20px; }
