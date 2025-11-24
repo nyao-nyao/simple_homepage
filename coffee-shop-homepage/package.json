@@ -1,0 +1,16 @@
+{
+  "name": "coffee-shop-homepage",
+  "version": "1.0.0",
+  "description": "A simple homepage for a coffee shop, showcasing its menu, about section, and contact information.",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "live-server src",
+    "build": "echo 'Build step can be added here'"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}

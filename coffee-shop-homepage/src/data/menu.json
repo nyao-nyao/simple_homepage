@@ -1,0 +1,44 @@
+{
+  "menuItems": [
+    {
+      "name": "Espresso",
+      "description": "Rich and bold espresso shot.",
+      "price": 3.00
+    },
+    {
+      "name": "Cappuccino",
+      "description": "Espresso with steamed milk and foam.",
+      "price": 4.50
+    },
+    {
+      "name": "Latte",
+      "description": "Creamy latte with a hint of vanilla.",
+      "price": 4.00
+    },
+    {
+      "name": "Mocha",
+      "description": "Chocolatey espresso drink topped with whipped cream.",
+      "price": 5.00
+    },
+    {
+      "name": "Americano",
+      "description": "Espresso diluted with hot water.",
+      "price": 3.50
+    },
+    {
+      "name": "Cold Brew",
+      "description": "Smooth and refreshing cold brew coffee.",
+      "price": 4.00
+    },
+    {
+      "name": "Chai Latte",
+      "description": "Spiced tea with steamed milk.",
+      "price": 4.50
+    },
+    {
+      "name": "Pastry",
+      "description": "Freshly baked pastry of the day.",
+      "price": 2.50
+    }
+  ]
+}
